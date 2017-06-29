@@ -35,16 +35,17 @@ white = np.array([255, 255, 255], dtype=np.uint16) #ffffff
 light_blue = np.array([154, 199, 232], dtype=np.uint16) #9ac7e8
 dark_blue = np.array([108, 131, 207], dtype=np.uint16) #6c83cf
 
-stripes[0] += dark_pink
-stripes[1] += light_pink
-stripes[2] += light_purple
-stripes[3] += white
-stripes[4] += light_purple
-stripes[5] += light_blue
-stripes[6] += dark_blue
+# Reversed stripes
+stripes[0] += 3 * dark_blue
+stripes[1] += 3 * light_blue
+stripes[2] += 3 * light_purple
+stripes[3] += 3 * white
+stripes[4] += 3 * light_purple
+stripes[5] += 3 * light_pink
+stripes[6] += 3 * dark_pink
 
 for stripe in stripes:
-    stripe = np.floor_divide(stripe, 2)
+    stripe = np.floor_divide(stripe, 4)
 
 # Unchunk
 transfm_img = unchunk(stripes)#.astype(np.uint8)
